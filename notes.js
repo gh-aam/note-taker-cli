@@ -1,6 +1,7 @@
 // notes.js
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 
 const notesFilePath = path.join(__dirname, 'notes.json');
 
@@ -32,9 +33,9 @@ const addNote = (title, body) => {
       body: body,
     });
     saveNotes(notes);
-    console.log('New note added!');
+    console.log(chalk.green('New note added!'));
   } else {
-    console.log('Note title taken!');
+    console.log(chalk.blue.bold('Note title taken!'));
   }
 };
 
@@ -45,10 +46,16 @@ const removeNote = (title) => {
   
   if (notes.length > notesToKeep.length) {
     saveNotes(notesToKeep);
-    console.log('Note removed!');
+    console.log(chalk.green('Note removed!'));
   } else {
-    console.log('No note found!');
+    console.log(chalk.blue.bold('No note found!'));
   }
+};
+
+// Remove all notes
+const removeAllNotes = () => {
+  saveNotes([]);
+  console.log(chalk.green('All notes removed!'));
 };
 
 // List all notes
@@ -61,7 +68,7 @@ const listNotes = () => {
       console.log('- ' + note.title);
     });
   } else {
-    console.log('No notes found!');
+    console.log(chalk.blue.bold('No notes found!'));
   }
 };
 
@@ -71,10 +78,10 @@ const readNote = (title) => {
   const note = notes.find((note) => note.title === title);
   
   if (note) {
-    console.log('Title: ' + note.title);
-    console.log('Body: ' + note.body);
+    console.log(chalk.yellow.bold('Title: ') + note.title);
+    console.log(chalk.yellow.bold('Body: ') + note.body);
   } else {
-    console.log('Note not found!');
+    console.log(chalk.blue.bold('Note not found!'));
   }
 };
 
@@ -82,6 +89,7 @@ const readNote = (title) => {
 module.exports = {
   addNote: addNote,
   removeNote: removeNote,
+  removeAllNotes: removeAllNotes,
   listNotes: listNotes,
   readNote: readNote,
 };

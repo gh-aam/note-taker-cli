@@ -3,6 +3,7 @@
 // app.js
 const notes = require('./notes.js');
 const yargs = require('yargs');
+const chalk = require('chalk');
 
 // Customize yargs version
 yargs.version('1.1.0');
@@ -26,7 +27,11 @@ yargs.command({
     },
   },
   handler(argv) {
-    notes.addNote(argv.title, argv.body);
+    if (argv.title.length > 0 && argv.body.length > 0) {
+      notes.addNote(argv.title, argv.body);
+    } else {
+      console.log(chalk.red.bold('Both the title and body must be non-empty!'));
+    }
   },
 });
 
@@ -43,8 +48,21 @@ yargs.command({
     },
   },
   handler(argv) {
-    notes.removeNote(argv.title);
+    if (argv.title.length > 0) {
+      notes.removeNote(argv.title);
+    } else {
+      console.log(chalk.red.bold('Title must be non-empty!'));
+    }
   },
+});
+
+// Create clear-all command
+yargs.command({
+  command: 'clear-all',
+  describe: 'Clear all notes',
+  handler() {
+    notes.removeAllNotes();
+  }
 });
 
 // Create list command
@@ -69,7 +87,11 @@ yargs.command({
     },
   },
   handler(argv) {
-    notes.readNote(argv.title);
+    if (argv.title.length > 0) {
+      notes.readNote(argv.title);
+    } else {
+      console.log(chalk.red.bold('Title must be non-empty!'));
+    }
   },
 });
 

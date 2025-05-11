@@ -17,6 +17,7 @@
   "author": "Abdullah Al Mamun",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.2",
     "yargs": "^17.7.2"
   },
   "repository": {

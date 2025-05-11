@@ -20,6 +20,10 @@ note add -t "Shopping List" -b "Buy milk and eggs"
 ```bash
 note remove --title="Shopping List"
 ```
+* Remove all notes
+```bash
+note clear-all
+```
 * List all notes
 ```bash
 note list
@@ -30,6 +34,8 @@ note read --title="Shopping List"
 ```
 
 ## Features
-* Create, read, list, and delete notes.
+* Create, read, list, delete, and delete all notes.
+* Input validation for all the commands.
+* Colored output.
 * CLI built using `yargs`.
 * Data stored in a local `notes.json` file.
