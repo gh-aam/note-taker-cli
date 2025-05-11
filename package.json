@@ -1,0 +1,26 @@
+{
+  "name": "note-taker-cli",
+  "version": "1.0.7",
+  "description": "A simple note-taking CLI tool",
+  "main": "app.js",
+  "bin": {
+    "note": "app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "note",
+    "cli",
+    "node.js"
+  ],
+  "author": "Abdullah Al Mamun",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gh-aam/note-taker-cli.git"
+  }
+}

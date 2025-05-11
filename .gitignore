@@ -1,0 +1,28 @@
+# Node dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# npm stuffs
+.npm
+.npmignore
+
+# dotenv environment variables file
+.env
+
+# Local development settings
+.vscode/
+.idea/
+
+# Output files
+dist/
+build/
